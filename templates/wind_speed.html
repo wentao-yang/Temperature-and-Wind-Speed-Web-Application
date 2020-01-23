@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wind Speed</title>
+    <script defer src="https://cdn.aerisapi.com/sdk/js/latest/aerisweather.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.aerisapi.com/sdk/js/latest/aerisweather.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/wind_speed.css">
+    <style>
+    #map {
+        height: 500px;
+    }
+    .map-container {
+        margin: 30px auto;
+        width: 500px;
+    }
+    </style>
+</head>
+<body>
+<header>
+    <div class="main">
+        <ul>
+            <li><a href="home">Home</a></li>
+            <li><a href="get_wind_speed">Wind Speed</a></li>
+            <li><a href="get_temperature">Temperature</a></li>
+        </ul>
+    </div>
+    <div class="title">
+        <h1>The wind speed here is currently {{wind}} knots.</h1>
+    </div>
+</header>
+<div class="map-container">
+    <div id="map"></div>
+    <div class="map-controls" style="margin-top:5px;"></div>
+</div>
+<script>
+    window.onload = () => {
+        const aeris = new AerisWeather('JGegT2rhA8ljSFFOZgwJZ', 'AO0Ebil89c492pABnTtb2LIzNAFgRPEbKIlsI5uW');
+        aeris.views().then(views => {
+            const map = new views.Map(document.getElementById('map'), {
+                map : {
+                    center: {{zipcode}},
+                    zoom: 10,
+                    layers: {
+                    base: 'flat',
+                    data: 'wind-speeds, wind-speeds-text',
+                    overlays: 'counties, admin'
+                    }
+                },
+                overlays: {
+                    title: 'Wind Speeds Map'
+                },
+                animation: {
+                from: 0,
+                to: 12 * 3600,
+                alwaysShowFuture: true
+                }
+            });
+        });
+    };
+</script>
+</body>
+</html>

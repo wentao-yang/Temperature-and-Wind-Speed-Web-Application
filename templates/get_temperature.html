@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Temperature</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/get_wind_speed_style.css">
+</head>
+<body>
+<header>
+    <div class="main">
+        <ul>
+            <li><a href="home">Home</a></li>
+            <li><a href="get_wind_speed">Wind Speed</a></li>
+            <li class="active"><a href="#">Temperature</a></li>
+        </ul>
+    </div>
+    <div class="form">
+        <h1>Enter a U.S. Zip Code below: </h1>
+        <form method="POST" action="temperature">
+            <input type="text" name="zip" placeholder="UT Austin is 78712">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</header>
+</body>
+</html>
