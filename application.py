@@ -6,8 +6,8 @@ application = app = Flask(__name__)
 app = Api(app)  # For Elastic Beanstalk
 
 # AerisWeather Access ID and Secret Key
-client_id = 'JGegT2rhA8ljSFFOZgwJZ'
-client_secret = 'AO0Ebil89c492pABnTtb2LIzNAFgRPEbKIlsI5uW'
+client_id = 'ENTERYOURIDHERE'
+client_secret = 'ENTERYOURSECRETKEYHERE'
 
 
 @application.route('/wind_speed', methods=['POST'])
