@@ -2,7 +2,7 @@
 
 A web application using Flask that returns the temperature and wind speed and their forecasts given the zip code by calling to the AerisWeather API.
 
-## Getting started
+## Getting Started
 
 First, make sure that your [AerisWeather](https://www.aerisweather.com/) subscription is up and running. Then, clone this repository.
 
