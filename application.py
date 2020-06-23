@@ -13,14 +13,17 @@ def get_speed():
     '''Requests the weather data from AerisWeather at a zip code, finds the wind speed, and returns wind_speed.html.'''
     zip_code = request.form['zip']
 
-    # Requests the weather data, which gives a json object, and finds the data for wind speed
-    req = requests.get(
-        'http://api.aerisapi.com/observations/' + zip_code + '?client_id=' + client_id +
-        '&client_secret=' + client_secret)
-    json_object = req.json()
-    wind_speed = float(json_object['response']['ob']['windKTS'])
+    try: 
+        # Requests the weather data, which gives a json object, and finds the data for wind speed
+        req = requests.get(
+            'http://api.aerisapi.com/observations/' + zip_code + '?client_id=' + client_id +
+            '&client_secret=' + client_secret)
+        json_object = req.json()
+        wind_speed = float(json_object['response']['ob']['windKTS'])
 
-    return render_template('wind_speed.html', wind=wind_speed, zipcode=zip_code)
+        return render_template('wind_speed.html', wind=wind_speed, zipcode=zip_code)
+    except:
+        return render_template('error.html')
 
 
 @app.route('/get_wind_speed')
@@ -35,14 +38,17 @@ def get_temp():
     temperature.html. '''
     zip_code = request.form['zip']
 
-    # Requests the weather data, which gives a json object, and finds the data for temperature
-    req = requests.get(
-        'http://api.aerisapi.com/observations/' + zip_code + '?client_id=' + client_id +
-        '&client_secret=' + client_secret)
-    json_object = req.json()
-    temperature = float(json_object['response']['ob']['tempF'])
+    try:
+        # Requests the weather data, which gives a json object, and finds the data for temperature
+        req = requests.get(
+            'http://api.aerisapi.com/observations/' + zip_code + '?client_id=' + client_id +
+            '&client_secret=' + client_secret)
+        json_object = req.json()
+        temperature = float(json_object['response']['ob']['tempF'])
 
-    return render_template('temperature.html', temp=temperature, zipcode=zip_code)
+        return render_template('temperature.html', temp=temperature, zipcode=zip_code)
+    except:
+        return render_template('error.html')
 
 
 @app.route('/get_temperature')
