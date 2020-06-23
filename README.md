@@ -22,7 +22,13 @@ Input your Access ID and Secret Key in the appropriate location. Make sure that 
 
 ## Launching the Web App
 
-Open your command prompt/terminal in this directory and enter:
+Check that all packages from ```requirements.txt``` are installed:
+
+```
+> pip3 install -r requirements.txt
+```
+
+Then, open your command prompt/terminal in this directory and enter:
 
 ```
 > python3 application.py
