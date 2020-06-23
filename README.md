@@ -1,4 +1,4 @@
-# Temperature and Wind Speed Web App
+# Temperature and Wind Speed Web App [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A web application using Flask that returns the temperature and wind speed and their forecasts given the zip code by calling to the AerisWeather API.
 
