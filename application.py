@@ -1,18 +1,16 @@
 import requests
 from flask import Flask, render_template, request
-from flask_restful import Api
 
-application = app = Flask(__name__)
-app = Api(app)  # For Elastic Beanstalk
+app = Flask(__name__)
 
 # AerisWeather Access ID and Secret Key
 client_id = 'ENTERYOURIDHERE'
 client_secret = 'ENTERYOURSECRETKEYHERE'
 
 
-@application.route('/wind_speed', methods=['POST'])
+@app.route('/wind_speed', methods=['POST'])
 def get_speed():
-    """Requests the weather data from AerisWeather at a zip code, finds the wind speed, and returns wind_speed.html."""
+    '''Requests the weather data from AerisWeather at a zip code, finds the wind speed, and returns wind_speed.html.'''
     zip_code = request.form['zip']
 
     # Requests the weather data, which gives a json object, and finds the data for wind speed
@@ -25,16 +23,16 @@ def get_speed():
     return render_template('wind_speed.html', wind=wind_speed, zipcode=zip_code)
 
 
-@application.route('/get_wind_speed')
+@app.route('/get_wind_speed')
 def req_speed():
-    """Returns get_wind_speed.html."""
+    '''Returns get_wind_speed.html.'''
     return render_template('get_wind_speed.html')
 
 
-@application.route('/temperature', methods=['POST'])
+@app.route('/temperature', methods=['POST'])
 def get_temp():
-    """Requests the weather data from AerisWeather at a zip code, finds the temperature, and returns
-    temperature.html. """
+    '''Requests the weather data from AerisWeather at a zip code, finds the temperature, and returns
+    temperature.html. '''
     zip_code = request.form['zip']
 
     # Requests the weather data, which gives a json object, and finds the data for temperature
@@ -47,23 +45,23 @@ def get_temp():
     return render_template('temperature.html', temp=temperature, zipcode=zip_code)
 
 
-@application.route('/get_temperature')
+@app.route('/get_temperature')
 def req_temp():
-    """Returns get_temperature.html."""
+    '''Returns get_temperature.html.'''
     return render_template('get_temperature.html')
 
 
-@application.route('/home')
+@app.route('/home')
 def home():
-    """Returns home.html."""
+    '''Returns home.html.'''
     return render_template('home.html')
 
 
-@application.route('/')
+@app.route('/')
 def index():
-    """Returns home.html."""
+    '''Returns home.html.'''
     return render_template('home.html')
 
 
 if __name__ == '__main__':
-    application.run(debug=True)
+    app.run(debug=True)
