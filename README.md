@@ -39,7 +39,3 @@ You can go to a web browser and go to ```http://localhost:5000/``` to use the we
 ## Deploying on Cloud Servers
 
 I have successully deploy this web application on AWS using Elastic Beanstalk. Here is the [Guide from AWS](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.CreateApp.html) that I followed.
-
-## Gallery
-
-There are photos of this web application deployed in the [photos folder](https://github.com/wentao-yang/Temperature-and-Wind-Speed-Web-Application/tree/master/photos). Note that the photos are large in size and you may need to scroll sideways.
